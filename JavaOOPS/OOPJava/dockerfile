@@ -1,0 +1,6 @@
+# base image
+FROM openjdk:8
+WORKDIR /src/java
+COPY . /src/java
+RUN ["javac","DockerDemo.java"]
+ENTRYPOINT ["java","DockerDemo"]
