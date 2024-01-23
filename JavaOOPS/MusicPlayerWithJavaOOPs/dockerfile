@@ -1,0 +1,7 @@
+# base image
+FROM openjdk:11
+WORKDIR /src/java
+COPY . /src/java
+#RUN javac Main.java
+CMD ["java","/srcMain.java"]
+#ENTRYPOINT ["java","/src/Main"]
