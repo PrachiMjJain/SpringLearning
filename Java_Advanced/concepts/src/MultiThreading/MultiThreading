@@ -1,0 +1,71 @@
+- multitasking , multiprocessing and multithreading
+- process and thread
+- thread life cycle
+- how to create thread in java :  thread class extends and runnable interface ( difference)
+- Lambda with multithreading
+- join and isALive
+- thread priority
+- synchronization keyword
+- thread safty
+
+Multitasking : Multitasking is a process of executing multiple tasks simultaneously. We use multitasking to utilize the CPU.
+Multitasking can be achieved in two ways:
+
+Process-based Multitasking (Multiprocessing)
+Thread-based Multitasking (Multithreading)
+1. multiprocessing  :
+2. multithreading
+
+MultiThreading : -
+
+Thread(class) : - sub process
+Use Of thread::
+ 1. Using complete power of cpu
+ - Octa core processor
+ - one java application = 1 thread
+ - one core = 1 thread , we can use other core to get other core
+
+ 2. Asynctask In Android:
+ - Ex:- amzazon search
+
+ 3. Web application:
+ - if 5 cutomer want to use 1 serverlet then create 5 thread for servlet.
+
+ 4. Gaming
+
+How to achieve Thread::
+1.Thread extends :- we cant achieve multipe inheritance in this case
+class MyThread extends Thread{
+int[] values = {3,4,7,6,8};
+public void run(){
+    for(int i=0; i<5; i++){
+        values[i] = values[i]*2;
+    }
+  }
+}
+Thread t1 = new MyThread();
+t1.run();
+
+2. implementing Runnable class
+class A{
+
+}
+class MyThread extends A implements Runnable{
+    int[] values = {3,4,7,6,8};
+    public void run(){
+        for(int i=0; i<5; i++){
+            values[i] = values[i]*2;
+        }
+      }
+}
+
+- Synchronized keywrod : - to make program thread safe , and one thread can excute method at a time only we use synchronized keyword.
+
+- Thread safty:- one thread can excute the method at a time
+    - mutability : when we have object(x=5) , we change the value (means mutation)of that (x=6) so that object is mutable.
+    - immuatability : we cant change the value of variable after assign.
+    - when we have multiple thread (t1,t2,t3) and shared data for all thread the issue arises for changing the value.it will leads inconsistency.
+    - we can achieve thread safty by 2 ways: synchronized keyword , atomic wrapper class
+
+    NOTE: -Concurrency refers to the parallel processing.  It is the ability to execute more than one programs or more than one parts of the program in parallel without affecting the final outcome. Note: Threads are the backbone of java concurrenc.
+           - Java atomic classes : Java provides a java.util.concurrent.atomic package in which atomic classes are defined. The atomic classes provide a lock-free and thread-safe environment or programming on a single variable.

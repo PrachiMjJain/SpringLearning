@@ -1,0 +1,175 @@
+Agenda:
+What is data Structure?
+Types of data structure
+what is collection framwork?
+why we need collection?
+
+
+What is data Structure?
+- Its a way by which we can store the data in the efficient way(time and space complexity).
+ , so we can retrieve it efficient way or can use it.
+- to store multiple data .
+- Types of data structure:-
+ 1. Primitive DS : boolean,char,byte, int , long , float , double .
+    EX:- int a =10; char c ='z';
+    - use of primitive DS :- small application, calculator , Snackgame
+ 2. Non-Primitive DS : Two types :-
+   - use of non primitvve : - e-commerce , social networking banking applications
+    a> Linear DS : string ,array , list ,set , queue , arrayList , LinkedList etc
+        EX:- String name = "Deepak"; Array arr = {10,20,30};
+    b> Non-Linear DS : graph , tree
+
+
+what is collection framwork?
+- it is a part of non -primitve datatype except strings and arrays.
+- It is predefined apis that provided by java that is used for non-primitive data structure.
+- Collection (it is the single entity or object whihc can store multiple data
+ - Framwork (represent the library)
+- definiton : - set of prefined class and interfaces which is used to store multiple data
+- It contains 2 main parts(packages) :-
+    a> java.util.Collection
+    b> jav.util.Map
+
+why we need collection?
+- arrays                    difference     collection framwork
+1. arrays can store primitive and non primitive (objects) data.
+EX:- int[] a = {10,'2',3,}; // it will accept string type only and typecast it
+EX:- class Test{
+    Test[] t = {obj1,obj2,obj3};
+}
+2. it store only homogenerous(same) type of data
+3. Array size fixed , we cannot increase or decrease size of array at run time
+4. Array are inbuilt feature of java & thus we have to develop algo.
+DIFFERENCE
+Collection framwork:::
+1. it can contain only non primitive type of data except array ans string.
+   EX:- ArrayList arr = new ArrayList();
+         arr.add(obj1);
+         arr.add(10); //Integer i = new Integer(10); , it also work as non-primitive data type
+
+2. can store hetrogenerous(different) type of data
+3. we can increase and decrease size at runtime.
+4. Collection framwork is an api which provides predefined class, interfaces & methods.
+
+Collection Hierachy : -
+                            Collection(I)
+               List(I): ArrayList(c) LinkedList(C) Vector(LC) Stack(LC)
+               Set(I) : HashSet(c)  : LinkedHashSet(c)
+                        SortedSet(I) : NavigableSet(I) , TreeSet(C)
+               Queue(I): Priorityqueue(C)
+                         Deque(I) : ArrayDequeue(c)
+    NOTE:- LC(legacy classes) before 1.2 we dont have a concept of collection framwork  so that time we used legacy class to hold objects. In this,  the original classes were reengineered to support the collection interface. These classes are also known as Legacy classes. All legacy classes and interfaces were redesigned by JDK 5 to support Generics.
+           LC(legacy Code) older version which is no longer in active development.
+Map Hierachy : -
+                                Map
+                HashMap(I) : LinkedHashMap(C)
+                IdentityHashMap(C)
+                WeakHashMap (C)
+                SortedMap(I) : NavigableMap(I) , TreeMap(C)
+                HashTable(C) : Properties(C) , Dictionary(C)
+
+
+1. collection(concept)
+2. collections(class)
+3. Collection(interface)
+
+@ Collection(interface):-(1.2 version) It is an interface whihc is presence in java.util package.
+ - Syntax:- public interface Collection<E> extends Iterable<E>{
+
+            }
+  - NOTE: No class direct inherits the collection interface .
+Collection values = new ArrayList(); // here datatype is object type
+// to add value
+values.add(5);
+values.add(7);
+values.add("Prachi");
+
+- Method Of collection interface:
+    - public boolean add(Object obj) : to add elements or object in collection
+    - public boolean addAll(Collection c) : add elements or object of one collection object to another collection object
+    - public boolean contains(Object obj) : to check whether collection object contains perticular object or not
+    - public boolean containsAll(Collection c) :
+    - public boolean isEmpty() : whether collection object is empty or not.
+    - puplic int size() : it will return the number of object presented in collection object.
+    - public boolean remove(Object o): for COllection interface , used to remove perticular object or element from collection object
+    NOTE:- public E remove(int index) :  for ArrayList
+    - public boolean removeAll(Collection c) :  to remove objects(that is common in bth collection object) of one collection object to another collection object
+    - public void clear() : to remove all the element(obejcts) from collection object.
+    - Iterator iterator() : to run object one by one
+
+to specify datatype in Collection we use generices(1.5 version):
+Collection<Integer> values = new ArrayList<Integer>();
+values.add(5);
+values.add(7);
+
+From (1.7 version):
+Collection<Integer> values = new ArrayList<>();
+
+In order to work with index: use List(it can have duplicate value) and Set(it cannot have duplicate values)
+-List<Integer> values = new ArrayList<>(); //
+-Set<Integer> numbers = new HashSet<>(); // Set is unordered
+-TreeSet<Integer> num = new TreeSet<>(); // to get data in shorted order
+-Map<Integer,String> map = new HashMap<>(); // it has key-values pair
+-Map<Integer, String> map = new HashTable<>();  //
+
+- Difference in HashMapp & HashTable
+1. non- synchronized means not thread safe | Synchronizaed and thread safe
+2.  We can make the HashMap as synchronized by calling this code
+   Map m = Collections.synchronizedMap(hashMap); | Hashtable is internally synchronized and can't be unsynchronized.
+
+
+- to sort the value based on last number use Comparator Interface
+
+Difference Between List and Set
+-List:-(Interface) it directly extends collection interface
+    1. It is index based data  structure.
+    2. List can store Duplicate elements or objects.
+    3. List can store any number of null values.
+    4. List follows the insertion order(FIFO).
+    5. We can iterate(get) the list elements by Iterator(only one direction forward iteration possible) & ListIterator(we can iterate with both forward and backward direction).
+-Set:-(Interface) it directly extends collection interface
+    1. Set dont use index based ds .it add data acc. to the Hash code value(unique integer value for each object)
+    2. Set does not allow to store duplicate element.
+    3. Set can store only one null value.
+    4. Set does not follows the insertion order.
+    5. We can iterate the set elemets by iterator.
+
+- Java Cursors: 3 type ::  Iterator , ListIterator , Enumeration
+    - Iterator & ListInterator
+ List list  = new  ArrayList(); | 1. We can get Iterator cursor by iterator() method. (EX: Iterator itr = list.iterator(); || ListIterator can get used by ListIterator() (EX: ListIterator listIterator  = list.Iterator();
+ list.add(10):                  | 2. Iterator cursor can be used with any collection ojbect || ListIterator cursor can be used with any collection object || ListIterator  cursor can be only with List implemented classes i.e. ArrayList , LinkedList , Vector , Stack.
+ list.add("deepak");            | 3. Iterator methods are :hasNext() , next() , remove() || ListIterator methods are : hasNext(), next(),hasPrevios() , previous() , remove(), set()
+ list.add("prachi");            | 4. by using Iterator cursor we can retrieve the elements only in forward direction. || By using ListIterator cursor we can retrieve elements in forward& backward Direction.
+                                | 5. By using Iterator cursor we can read and remove the elements. || By using ListIterator cursor we can read , remove , replace and add the elements.
+
+    - Enumeration:
+        - it is a cursor which is used to retrieve collection objects one by one. (1.0)
+        - It can be used only with legacy classes.(vector & stack).
+        - It can be get by elements() method.
+            EX: Enumeration enum = v.elements();
+        - Methods of enumeration cursor : hasMoreElements() , nextElement()
+        - Enumeration cursor can be used to retrieve the elements only in forward direction.
+
+-ArrayList :
+    - it is an implemented class of List Interface which is present in java.util package.
+    - syntax:
+    package java.util;
+    class ArrayList implements List{
+
+    }
+    - ArrayList is created on the basis of growable or resizable array.
+    - Properties of ArrayList :
+        - ArrayList are index based DS
+        - ArrayList can store different datatypes or hetrogenous data-type.
+        - ArrayList can store duplicate value.
+        _ ArrayList can store many no.. of null value.
+        - ArrayList follow insertion order.
+        - ArrayList does not follows the sorting order.
+        - ArrayList are non-synchronized.( at a time multiple thread can access one object)
+
+    - ArrayList constructor and method:
+        - 3 constructor: -
+            - ArrayList() : initally capacity is 10 and size is 0
+            - ArrayList(int initialCapacity) :
+            - ArrayList(Collection c)
+            - ArrayList(java.util)
